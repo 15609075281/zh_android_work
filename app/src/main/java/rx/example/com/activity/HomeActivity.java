@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -21,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ImageView home_head;
     private ImageView home_search;
-    private ListView homeListView;
+    private GridView homeListView;
     private HomeActivityAdapter activityAdapter;
     private List<Map<String, String>> list;
     private Context context;

@@ -31,9 +31,9 @@ public class HomeActivityAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        if (maps==null){
+        if (maps == null) {
             return 0;
-        }else{
+        } else {
             return maps.size();
         }
     }
@@ -55,32 +55,26 @@ public class HomeActivityAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.home_listitem_xml, null, false);
             vh = new ViewHelad();
             vh.home_item_image1 = convertView.findViewById(R.id.home_item_image1);
-            vh.home_item_image2 = convertView.findViewById(R.id.home_item_image2);
-            vh.home_item_image3 = convertView.findViewById(R.id.home_item_image3);
+
             vh.home_item_text1 = convertView.findViewById(R.id.home_item_text1);
-            vh.home_item_text2 = convertView.findViewById(R.id.home_item_text2);
-            vh.home_item_text3 = convertView.findViewById(R.id.home_item_text3);
+
             convertView.setTag(vh);
         } else {
             vh = (ViewHelad) convertView.getTag();
         }
         Map<String, String> map = maps.get(position);
 //        vh.home_item_image1.setImageResource(Integer.parseInt(map.get("image1")));
-//        vh.home_item_image2.setImageResource(Integer.parseInt(map.get("image2")));
-//        vh.home_item_image3.setImageResource(Integer.parseInt(map.get("image3")));
+
         vh.home_item_text1.setText(map.get("text1"));
-        vh.home_item_text2.setText(map.get("text2"));
-        vh.home_item_text3.setText(map.get("text3"));
+
         return convertView;
     }
 
 
     class ViewHelad {
         TextView home_item_text1;
-        TextView home_item_text2;
-        TextView home_item_text3;
+
         ImageView home_item_image1;
-        ImageView home_item_image2;
-        ImageView home_item_image3;
+
     }
 }
