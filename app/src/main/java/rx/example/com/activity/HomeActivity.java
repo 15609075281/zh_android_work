@@ -4,11 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +45,16 @@ public class HomeActivity extends AppCompatActivity {
         home_head = findViewById(R.id.home_head);
         home_search = findViewById(R.id.home_search);
         homeListView = findViewById(R.id.homeListView);
+        setListener(listener);
+    }
+    private void setListener(View.OnClickListener listener){
+        home_head.setOnClickListener(listener);
+        home_head.setOnClickListener(listener);
     }
 
     private void data() {
         list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             Map<String, String> map = new HashMap<>();
             map.put("image1", String.valueOf(R.drawable.s16));
             map.put("image2", String.valueOf(R.drawable.s16));
@@ -65,10 +73,28 @@ public class HomeActivity extends AppCompatActivity {
         homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Adapter adapter= (Adapter) parent.getAdapter().getItem(position);
 
+                Log.e("position", position + "");
             }
         });
-
     }
+
+    android.view.View.OnClickListener listener = new android.view.View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+
+                case R.id.home_head:
+                    Toast.makeText(context,"检查账号是否存在！！！",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home_search:
+                    Toast.makeText(context,"没有搜索列表！！！",Toast.LENGTH_SHORT).show();
+                    break;
+
+                default:
+            }
+        }
+    };
 
 }
