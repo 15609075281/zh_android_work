@@ -1,4 +1,4 @@
-package rx.example.com.activity;
+package rx.example.com.ui.activity;
 
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
@@ -8,16 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import rx.example.com.activity.fragment.FourFragment;
+import rx.example.com.ui.fragment.FourFragment;
 import rx.example.com.adapter.MainViewPageAdapter;
-import rx.example.com.activity.fragment.OneFragment;
+import rx.example.com.ui.fragment.OneFragment;
 import rx.example.com.R;
-import rx.example.com.activity.fragment.ThereFragment;
-import rx.example.com.activity.fragment.TwoFragment;
+import rx.example.com.ui.fragment.ThereFragment;
+import rx.example.com.ui.fragment.TwoFragment;
 
 public class MainActivity extends AppCompatActivity {
 

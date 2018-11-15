@@ -1,30 +1,37 @@
 package rx.example.com.adapter;
 
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
 import java.util.List;
 import java.util.Map;
 
 import rx.example.com.R;
+import rx.example.com.ui.Entity.HomeEntity;
 
-public class HomeActivityAdapter extends BaseAdapter {
+/**
+ * @param <T>
+ * @author hc
+ */
 
-    private List<Map<String, String>> maps;
+public class HomeActivityAdapter<T> extends BaseAdapter {
+
+    private List<HomeEntity> maps;
     private Context context;
 
     public HomeActivityAdapter(Context context) {
         this.context = context;
     }
 
-    public void setData(List<Map<String, String>> list) {
+    public void setData(List<HomeEntity> list) {
         this.maps = list;
         notifyDataSetChanged();
     }
@@ -62,10 +69,10 @@ public class HomeActivityAdapter extends BaseAdapter {
         } else {
             vh = (ViewHelad) convertView.getTag();
         }
-        Map<String, String> map = maps.get(position);
-//        vh.home_item_image1.setImageResource(Integer.parseInt(map.get("image1")));
+        HomeEntity homeEntity = maps.get(position);
 
-        vh.home_item_text1.setText(map.get("text1"));
+        x.image().bind(vh.home_item_image1, homeEntity.getImageUrl());
+        vh.home_item_text1.setText(homeEntity.getName());
 
         return convertView;
     }
