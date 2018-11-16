@@ -6,16 +6,7 @@ import android.content.Context;
 import org.xutils.x;
 
 public class MyApplication extends Application {
-    public static class SingleToHolder {
-        private static final MyApplication ourInstance = new MyApplication();
-    }
 
-    public static MyApplication getInstance() {
-        return SingleToHolder.ourInstance;
-    }
-
-    private MyApplication() {
-    }
 
 
     @Override

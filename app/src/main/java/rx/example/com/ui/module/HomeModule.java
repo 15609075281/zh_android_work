@@ -25,7 +25,7 @@ public class HomeModule extends abstractHomeModuleImp {
         for (int i = 0; i < 20; i++) {
             HomeEntity homeEntity = new HomeEntity();
             homeEntity.setName("测试" + i + "号");
-            homeEntity.setImageUrl("//www.baidu.com/img/bd_logo1.png");
+            homeEntity.setImageUrl("https://www.baidu.com/img/bd_logo1.png");
             list.add(homeEntity);
         }
         if (list.size() > 0) {

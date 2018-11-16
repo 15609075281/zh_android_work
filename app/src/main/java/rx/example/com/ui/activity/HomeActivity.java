@@ -12,6 +12,7 @@ import java.util.List;
 
 import rx.example.com.R;
 import rx.example.com.adapter.HomeActivityAdapter;
+import rx.example.com.ui.Entity.HomeEntity;
 import rx.example.com.ui.presenter.HomePresenter;
 import rx.example.com.ui.view.HomeView;
 
@@ -24,7 +25,8 @@ public class HomeActivity extends BaseActivity implements HomeView {
     private ImageView homeSearch;
     private GridView homeListView;
     private HomeActivityAdapter activityAdapter;
-    private  HomePresenter homePresenter;
+    private HomePresenter homePresenter;
+
     @Override
     public int inti() {
         return R.layout.homeactivity_xml;
@@ -32,7 +34,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     public void findViews() {
-          homePresenter = HomePresenter.getInstance();
+        homePresenter = HomePresenter.getInstance();
         homePresenter.find(this);
         homeHead = findViewById(R.id.homeHead);
         homeSearch = findViewById(R.id.homeSearch);
@@ -52,7 +54,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     public void setting() {
-//        homePresenter.getDataList();
+        homePresenter.getDataList();
     }
 
 
@@ -86,13 +88,13 @@ public class HomeActivity extends BaseActivity implements HomeView {
     public void setListData(List listData) {
         activityAdapter = new HomeActivityAdapter(getInstance());
         activityAdapter.setData(listData);
-        Log.e("sssssssssss",listData.toString());
+
         homeListView.setAdapter(activityAdapter);
         homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Adapter adapter = (Adapter) parent.getAdapter().getItem(position);
-                Log.e("position", position + "");
+                HomeEntity adapter = (HomeEntity) parent.getAdapter().getItem(position);
+                Log.e("position", adapter.toString() + "");
             }
         });
     }
